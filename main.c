@@ -33,6 +33,18 @@ void    ajouter_tache()
 
 }
 
+void afficher_tache()
+{
+    for(int i = 0; i < nombre_taches; i++)
+    {
+        printf("Tache %d:\n", i + 1);
+        printf("   Titre:       %s\n", taches[i].titre);
+        printf("   Description: %s\n", taches[i].description);
+        printf("   Date:        %s\n", taches[i].date);
+        printf("   Priorite:    %s\n", taches[i].priorite);
+    }
+}
+
 int main()
 {
     int choix;
@@ -54,6 +66,7 @@ int main()
                 ajouter_tache();
                 break ;
             case 2:
+                afficher_tache();
                 break ;
             case 3:
                 break ;
