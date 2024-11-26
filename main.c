@@ -107,6 +107,7 @@ int main()
                 modifier_tache();
                 break ;
             case 4:
+                supprimer_tache();
                 break ;
             case 5:
                 exit(0);
