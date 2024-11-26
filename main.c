@@ -44,6 +44,42 @@ void afficher_tache()
         printf("   Priorite:    %s\n", taches[i].priorite);
     }
 }
+void modifier_tache()
+{
+    struct Tache tache;
+
+    if (nombre_taches < 1000)
+    {
+        printf("Entrez le titre de la tache: ");
+        scanf(" %[^\n]", tache.titre);
+        printf("entrez la description de la tache: ");
+        scanf(" %[^\n]",tache.description);
+        printf("entrez la date de la tache: ");
+        scanf(" %[^\n]",tache.date);
+        printf("entrez la priorite de la tache: ");
+        scanf(" %[^\n]",tache.priorite);
+        taches[nombre_taches] = tache;
+        nombre_taches++;
+        printf("l'opération s'est terminée avec succes\n");
+    }
+}
+void supprimer_tache() {
+        
+    int indice,i;
+    printf("Enter indice qui veux supprimer :");
+    scanf("%d",&indice);
+	if(indice<0 || indice>nombre_taches){
+			printf("indice invalide !\n");
+			return ;
+		}else{
+    for(i=indice;i<nombre_taches;i--){
+	taches[i]=taches[i+1];
+}
+    nombre_taches--;
+}
+	printf("suppresion avec succes !");
+
+    }
 
 int main()
 {
@@ -56,8 +92,7 @@ int main()
         printf("2.afficher la liste des taches\n");
         printf("3.modifier une tache\n");
         printf("4.supprimer une tache\n");
-        printf("5.filtrer les taches\n");
-        printf("6.quitter\n");
+        printf("5.quitter\n");
          printf("\nentrer votre choix ");
         scanf("%d", &choix);
         switch (choix)
@@ -69,13 +104,11 @@ int main()
                 afficher_tache();
                 break ;
             case 3:
+                modifier_tache();
                 break ;
             case 4:
                 break ;
             case 5:
-                //
-                break ;
-            case 6:
                 exit(0);
                 break;
             default:
